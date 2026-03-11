@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Huynh</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8; /* Science Blue */
+            --tag-bg: #334155;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        header {
+            max-width: 1000px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
+        p.subtitle { font-size: 1.2rem; color: var(--text-dim); }
+
+        /* The Project Grid */
+        #project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Project Box Styling */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        h3 { margin-top: 0; color: var(--text-main); }
+        .desc { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        /* Tag Styling */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .link-btn {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .link-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Brian Huynh</h1>
+        <!-- <p class="subtitle">C++ Engineer | Physics Engines | Robotics Simulation</p>
+        <p>Specializing in high-fidelity virtual environments for Embodied AI.</p> -->
+        <p class="subtitle">Scientific Software Engineer | Data Science | Multiphysics Simulation</p>
+    </header>
+
+    <main id="project-grid">
+        </main>
+
+    <script>
+        // ADD YOUR PROJECTS HERE
+        const projects = [
+            // {
+            //     title: "CubeSat Isaac Sim",
+            //     desc: "Orbital mechanics and ADCS simulation in NVIDIA Isaac Sim. Features RTX-based star tracker simulation and magnetorquer physics.",
+            //     tags: ["C++", "Isaac Sim", "PhysX"],
+            //     link: "https://github.com/bhuynh103/cubesat"
+            // },
+            // {
+            //     title: "Custom 3D Physics Engine",
+            //     desc: "A lightweight rigid-body solver with GJK collision detection and sequential impulse constraints.",
+            //     tags: ["C++", "Linear Algebra", "OpenGL"],
+            //     link: "#"
+            // },
+            // {
+            //     title: "Synthetic Data Pipeline",
+            //     desc: "Automated generation of 100k+ labeled images for robot grasp detection using domain randomization.",
+            //     tags: ["Python", "Omniverse", "Deep Learning"],
+            //     link: "#"
+            // },
+            {
+                title: "TFlux",
+                desc: "Automatic cell segmentation with k-means clustering for Fourier analysis of in vivo tissue samples.",
+                tags: ["Python", "Unsupervised Learning", "Image Analysis"],
+                link: "#"
+            },
+            {
+                title: "Custom Autograd Engine",
+                desc: "Implementing neurons and automatic differentiation in Python to construct a simple neural network.",
+                tags: ["Python", "Machine Learning", "Calculus"],
+                link: "#"
+            },
+        ];
+
+        const grid = document.getElementById('project-grid');
+
+        projects.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            
+            const tagsHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+            
+            card.innerHTML = `
+                <div>
+                    <h3>${p.title}</h3>
+                    <div class="tags">${tagsHTML}</div>
+                    <p class="desc">${p.desc}</p>
+                </div>
+                <a href="${p.link}" class="link-btn" target="_blank">View Project</a>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
