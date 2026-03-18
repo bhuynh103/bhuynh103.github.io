@@ -6,6 +6,12 @@ const projects = [
     //     link: "https://github.com/bhuynh103/cubesat"
     // },
     // {
+    //     title: "Driving Score Isaac Sim",
+    //     desc: "Evaluating driving skill.",
+    //     tags: ["C++", "Isaac Sim", "PhysX"],
+    //     link: "https://github.com/bhuynh103/cubesat"
+    // },
+    // {
     //     title: "Custom 3D Physics Engine",
     //     desc: "A lightweight rigid-body solver with GJK collision detection and sequential impulse constraints.",
     //     tags: ["C++", "Linear Algebra", "OpenGL"],
@@ -21,7 +27,8 @@ const projects = [
         title: "TFlux",
         desc: "Automatic cell segmentation with k-means clustering for Fourier analysis of in vivo tissue samples.",
         tags: ["Python", "Unsupervised Learning", "Image Analysis"],
-        link: "#"
+        link: "#",
+        image: "assets/tflux.png"
     },
     {
         title: "Custom Autograd Engine",
@@ -44,6 +51,7 @@ function renderProjects(filter = 'All') {
         const tagsHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
         
         card.innerHTML = `
+            ${p.image ? `<img src="${p.image}" alt="${p.title}" class="project-img">` : ''}
             <div>
                 <h3>${p.title}</h3>
                 <div class="tags">${tagsHTML}</div>

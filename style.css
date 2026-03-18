@@ -78,6 +78,14 @@ h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
     box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
 }
 
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px 8px 0 0;  /* rounds top corners to match card */
+    display: block;
+}
+
 .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
 .tag {
     background: rgba(56, 189, 248, 0.1);
